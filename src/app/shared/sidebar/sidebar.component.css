@@ -1,6 +1,9 @@
-* {
-  font-family: "Montserrat", sans-serif;
+@import '~@fontsource-variable/montserrat';
+
+body {
+  font-family: 'Montserrat Variable', sans-serif;
 }
+
 
 aside {
   /* background: #144d4b; */

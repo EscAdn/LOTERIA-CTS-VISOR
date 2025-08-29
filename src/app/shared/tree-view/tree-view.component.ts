@@ -65,7 +65,7 @@ export class TreeViewComponent implements OnInit {
       return;
     }
     // Si el árbol de dependencias no está en el cache, se carga desde la API
-    this._dependencyService.getDepedendencyStructure().subscribe({
+    this._dependencyService.getDepedendencyStructure('all').subscribe({
       next: (resp) => {
         this.files = resp.map((dependency: DependencyStructureResponse) =>
           dependencyStructureMapper.dependencyStructureToEntity(dependency)
@@ -76,6 +76,9 @@ export class TreeViewComponent implements OnInit {
         this._cacheService.set('treeDependencies', this.files);
         this.selectNodesProgrammatically();
       },
+     
+
+
       error: (err) => {
         console.error('Error al cargar la estructura de dependencias:', err);
         this.loadingDep = false;
